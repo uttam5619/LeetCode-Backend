@@ -1,11 +1,11 @@
 import express from 'express'
-import { addProblem, deleteProblem, getProblem, updateProblem, getProblems } from '../../controllers/problem.controller'
-const problemRouter = express.Router()
+import { addProblem, deleteProblem, getProblem, updateProblem, getProblems } from '../../controllers/problem.controller.js'
+const problemRoute = express.Router()
 
-problemRouter.get('/:id', getProblem)
-problemRouter.post('/:id', addProblem)
-problemRouter.put('/:id', updateProblem)
-problemRouter.delete('/:id', deleteProblem)
-problemRouter.get('/', getProblems)
+problemRoute.get('/:id', getProblem)
+problemRoute.post('/add', addProblem)
+problemRoute.put('/update/:id', updateProblem)
+problemRoute.delete('/delete/:id', deleteProblem, getProblems)
+problemRoute.get('/', getProblems)
 
-export default problemRouter
+export default problemRoute
