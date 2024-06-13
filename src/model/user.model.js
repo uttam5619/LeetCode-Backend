@@ -37,18 +37,18 @@ const userSchema =new Schema({
     },
     avatar:{
         public_id:{
-            type: String, //cloudinary
+            type: String, //cloudinary url
             required: [true,`public_id is required`],
         },
         secure_url:{
-            type: String, //cloudinary
+            type: String, //cloudinary url
             required: [true,`secure_url is required`],
         }
     },
     role: {
         type: String,
         enum: [`user`, `admin`],
-        admin: 'user'
+        default: 'user'
     }
 },{timestamps:true})
 
@@ -66,6 +66,7 @@ userSchema.method ={
             {expiresIn: '5m'}
         )
     },
+
     comparePassword: async function(password){
         return await bcrypt.compare(password, this.password)
     }

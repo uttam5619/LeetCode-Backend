@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.text())
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 app.use('/leetcode/v1/auth',authRoute)
 app.use('/leetcode/v1/user',userRoute)
