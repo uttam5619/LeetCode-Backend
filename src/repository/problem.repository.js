@@ -1,6 +1,6 @@
-import Problem from "../model/problem.model";
+import Problem from "../model/problem.model.js";
 
-class problemRepository {
+class ProblemRepository {
 
     async createProblem(problemData){
         try{
@@ -8,12 +8,9 @@ class problemRepository {
                 title: problemData.title,
                 description: problemData.description,
                 difficuilty: problemData.difficuilty,
-                teastCases: (problemData?.testCases)? problemData.testCases : [],
-                editorial: (problemData?.editorial)? problemData.editorial : []
+                testCases: (problemData?.testCases)? problemData.testCases : [],
+                editorial: (problemData?.editorial)? problemData.editorial : 'to be specified'
             })
-            if(!problem){
-                return resizeBy.status(400).json({message: 'failed to create the problem'})
-            }
             return problem
         }catch(err){
             console.log(err.message);
@@ -23,4 +20,4 @@ class problemRepository {
     }
 }
 
-export default problemRepository
+export default ProblemRepository

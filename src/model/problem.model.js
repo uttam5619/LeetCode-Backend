@@ -1,4 +1,4 @@
-import { Schema, model } from mongoose
+import { Schema, model } from 'mongoose'
 
 const problemSchema = new Schema({
     title: {
@@ -17,18 +17,8 @@ const problemSchema = new Schema({
         type: String,
         required: [true,'difficulty is required'],
         enum: ['easy', 'medium', 'hard'],
-        default: 'to be specified',
+        default: 'easy',
         trim: true,
-    },
-    problemImage: {
-        secure_url: {
-            type: String,
-            default: 'null'
-        },
-        public_id:{
-            type: String,
-            default: 'null'
-        }
     },
     testCases: [
         {

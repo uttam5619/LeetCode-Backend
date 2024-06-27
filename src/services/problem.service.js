@@ -1,4 +1,4 @@
-import sanitizeMarkDown from "../utils/markdownSanitizer"
+import sanitizeMarkDown from "../utils/markdownSanitizer.js"
 
 class ProblemService {
 
@@ -11,6 +11,7 @@ class ProblemService {
         try{
         problemData.description = sanitizeMarkDown(problemData.description)
         const problem  = await this.problemRepository.createProblem(problemData)
+        return problem
         }catch(error){
             console.log(err.message)
             throw error
