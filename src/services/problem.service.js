@@ -17,6 +17,45 @@ class ProblemService {
             throw error
         }
     }
+
+    async getAllProblems(){
+        try{
+            const allProblems = await this.problemRepository.getProblems()
+            return allProblems
+        }catch(error){
+            console.log(err.message)
+            throw error
+        }
+    }
+
+    async getTheProblem(id){
+        try{
+            const problem = await this.problemRepository.getTheProblem(id)
+            return problem
+        }catch(error){
+            console.log(error.message)
+            throw error
+        }
+    }
+
+    async updateTheProblem(id){
+        try{
+            problem =await this.problemRepository.updateTheProblem(id)
+            return problem
+        }catch(error){
+            console.log(error)
+            throw error
+        }
+    }
+
+    async deleteTheProblem(id){
+        try{
+            await this.problemRepository.deleteTheProblem(id)
+        }catch(error){
+            console.log(error.message)
+            throw error
+        }
+    }
 }
 
 export default ProblemService
