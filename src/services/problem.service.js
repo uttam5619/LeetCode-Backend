@@ -40,7 +40,9 @@ class ProblemService {
 
     async updateTheProblem(id){
         try{
-            problem =await this.problemRepository.updateTheProblem(id)
+            sanitizedDescription = sanitizeMarkDown(req.body.description)
+            req.body.description = sanitizedDescription
+            problem = await this.problemRepository.updateTheProblem(req.body)
             return problem
         }catch(error){
             console.log(error)

@@ -49,6 +49,11 @@ const userSchema =new Schema({
         type: String,
         enum: [`user`, `admin`],
         default: 'user'
+    },
+    description: {
+        type: String,
+        lowercase: true,
+        maxLength: [1000,'the description should not contain more than 1500 characters']
     }
 },{timestamps:true})
 
@@ -72,4 +77,4 @@ userSchema.method ={
     }
 }
 
-export const User =model('User', userSchema)
+export const User = model('User', userSchema)

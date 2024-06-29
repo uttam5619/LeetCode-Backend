@@ -36,7 +36,7 @@ const addProblem=async (req,res)=>{
 
 const getProblem= async (req,res)=>{
     try{
-        const { id } = req.body
+        const { id } = req.params
         if(!id){
             return res.status(400).json({
                 success: false,
@@ -63,14 +63,14 @@ const getProblem= async (req,res)=>{
 
 const updateProblem= async (req,res)=>{
     try{
-        const { id } = req.body
+        const { id } = req.params
         if(!id){
             return res.status(400).json({
                 success: false,
                 message: 'provide a valid problem id'
             })
         }
-        const problem = await problemService.updateTheProblem(id)
+        const problem = await problemService.updateTheProblem(req.body)
         if(!problem){
             return res.status(400).json({
                 success: false,
@@ -89,7 +89,7 @@ const updateProblem= async (req,res)=>{
 
 const deleteProblem = async (req,res,next)=>{
     try{
-        const { id } = req.body
+        const { id } = req.params
         if(!id){
             return res.status(400).json({
                 success: false,
