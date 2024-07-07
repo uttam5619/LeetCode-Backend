@@ -32,3 +32,15 @@ and take user id from the request body.
 
 v2
 - contests at a particular date.
+
+
+
+- project description
+- installation guides
+- env variables
+
+- routes endpoint
+
+- swagger
+
+ 
