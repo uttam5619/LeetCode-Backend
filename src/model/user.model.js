@@ -53,7 +53,8 @@ const userSchema =new Schema({
     description: {
         type: String,
         lowercase: true,
-        maxLength: [1000,'the description should not contain more than 1500 characters']
+        trim: true,
+        maxLength: [1000,'the description should not contain more than 1000 characters']
     }
 },{timestamps:true})
 
