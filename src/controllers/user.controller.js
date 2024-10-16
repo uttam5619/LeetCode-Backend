@@ -1,4 +1,12 @@
 
+const addUser = (req, res) =>{
+    
+}
+
+const getAllUsers = (req, res) =>{
+
+}
+
 const getUser=(req,res)=>{
 
 }
@@ -7,10 +15,15 @@ const updateUser=(req,res)=>{
 
 }
 
+
 const deleteUser=(req,res)=>{
 
 }
 
 export {
-    getUser,updateUser,deleteUser
+    addUser,
+    getAllUsers,
+    getUser,
+    updateUser,
+    deleteUser
 }

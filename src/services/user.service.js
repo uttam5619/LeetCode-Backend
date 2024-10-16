@@ -24,13 +24,33 @@ class UserService{
         }
     }
 
-    async deleteUser(userData){
+    async getUser(userData){
         try{
-            await this.userRepository.deleteUser()
+            const user = await this.userRepository.getUser(userData)
+            return user
         }catch(err){
             console.log(err);
             console.log(err.message);
         }
     }
-     
+
+    async getAllUsers(){
+        try{
+            const users = await this.userRepository.getAllUsers()
+            return users
+        }catch(err){
+            console.log(err);
+            console.log(err.message);
+        }
+    }
+
+    async deleteUser(userData){
+        try{
+            await this.userRepository.deleteUser(userData)
+        }catch(err){
+            console.log(err);
+            console.log(err.message);
+        }
+    }
+
 }

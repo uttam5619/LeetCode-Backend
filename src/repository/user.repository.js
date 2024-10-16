@@ -15,24 +15,22 @@ class UserRepository {
 
     async updateUser(userData){
         const doesUserExist = await User.findById(userData.id);
-        if(!doesUserExist){
-            return res.status(404).json({
-                success:"false",
-                message: "User not found"
-            });
-        }
-        const user = await User.findByIdAndUpdate(userData.id)
+        const user = await User.findByIdAndUpdate(doesUserExist._id);
         return user;
+    }
+
+    async getUser(userData){
+        const user = await User.findById(userData.id);
+        return user;
+    }
+
+    async getAllUsers(userData){
+        const allUsers = await User.find({})
+        return allUsers
     }
 
     async deleteUser(userData){
         const doesUserExist = await User.findById(userData.id);
-        if(!doesUserExist){
-            return res.status(404).json({
-                success: "false",
-                message:"User not found"
-            })
-        }
         await User.findByIdAndDelete(doesUserExist._id);
     }
 
